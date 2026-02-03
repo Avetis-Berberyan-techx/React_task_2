@@ -1,35 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import TaskInput from "./components/taskInput/TaskInput";
+import TodoItems from "./components/todoItems/TodoItems";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [tasks, setTasks] = useState([]);
+
+  function createTask(value) {
+    if (!value) return;
+
+    const newTask = {
+      id: tasks.length ? tasks[tasks.length - 1].id + 1 : 0,
+      text: value,
+      completed: false,
+    };
+
+    setTasks((prevTasks) => [...prevTasks, newTask]);
+  }
+
+  function deleteTask(id) {
+    setTasks((prev) => prev.filter((task) => task.id !== id));
+  }
+
+  function EditById(id, newText) {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === id ? { ...task, text: newText } : task,
+      ),
+    );
+  }
+
+  function changeCompletedByID(id, newCompleted) {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === id ? { ...task, completed: newCompleted } : task,
+      ),
+    );
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1>Header</h1>
+      <main>
+        <TaskInput onClick={createTask} />
+        <TodoItems
+          tasks={tasks}
+          DeleteId={deleteTask}
+          EditByID={EditById}
+          changeCompletedByID={changeCompletedByID}
+          filter="all"
+        />
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
