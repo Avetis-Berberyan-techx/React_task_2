@@ -7,7 +7,6 @@ import editIcon from "../../assets/pencil.svg";
 
 function TodoItem({ id, taskText, completed, onDelete, onEdit, onComplete }) {
   const [isEdit, setIsEdit] = useState(false);
-  const [isCompleted, setIsCompleted] = useState(completed);
   const [text, setText] = useState(taskText);
 
   function handleDelete() {
@@ -15,20 +14,16 @@ function TodoItem({ id, taskText, completed, onDelete, onEdit, onComplete }) {
   }
 
   function handleComplete() {
-    const newCompleted = !isCompleted;
-    setIsCompleted(newCompleted);
-    onComplete(id, newCompleted);
+    onComplete(id, !completed);
   }
 
-  function handleEditClick() {
-    if (isEdit) {
-      onEdit(id, text);
-    }
+  function handleEditToggle() {
+    if (isEdit) onEdit(id, text);
     setIsEdit((prev) => !prev);
   }
 
-  function handleEditKeyDown(e) {
-    if (e.key === "Enter") handleEditClick();
+  function handleKeyDown(e) {
+    if (e.key === "Enter") handleEditToggle();
     if (e.key === "Escape") {
       setText(taskText);
       setIsEdit(false);
@@ -36,14 +31,14 @@ function TodoItem({ id, taskText, completed, onDelete, onEdit, onComplete }) {
   }
 
   return (
-    <div className={`todo ${isCompleted ? "todo--completed" : ""}`}>
+    <div className={`todo ${completed ? "todo--completed" : ""}`}>
       {isEdit ? (
         <input
           className="todo__text todo__text-input"
           type="text"
           value={text}
           onChange={(e) => setText(e.target.value)}
-          onKeyDown={handleEditKeyDown}
+          onKeyDown={handleKeyDown}
           autoFocus
         />
       ) : (
@@ -54,7 +49,7 @@ function TodoItem({ id, taskText, completed, onDelete, onEdit, onComplete }) {
         <button
           className="todo__button todo__button-edit"
           type="button"
-          onClick={handleEditClick}
+          onClick={handleEditToggle}
         >
           <img src={editIcon} alt="Edit" />
         </button>
@@ -76,7 +71,7 @@ function TodoItem({ id, taskText, completed, onDelete, onEdit, onComplete }) {
             src={checkIcon}
             alt="Check"
             className={`todo__button-check--image${
-              isCompleted ? "-checked" : ""
+              completed ? "-checked" : ""
             }`}
           />
         </button>
@@ -87,7 +82,7 @@ function TodoItem({ id, taskText, completed, onDelete, onEdit, onComplete }) {
 
 function TodoItems({
   tasks,
-  DeleteId,
+  DeleteById,
   EditByID,
   changeCompletedByID,
   filter = "all",
@@ -98,25 +93,17 @@ function TodoItems({
     return true;
   });
 
-  function handleEdit(id, text) {
-    EditByID(id, text);
-  }
-
-  function handleComplete(id, completed) {
-    changeCompletedByID(id, completed);
-  }
-
   return (
     <div className="tasks">
       {filteredTasks.map((task) => (
         <TodoItem
           key={task.id}
           id={task.id}
-          completed={task.completed}
           taskText={task.text}
-          onDelete={DeleteId}
-          onEdit={handleEdit}
-          onComplete={handleComplete}
+          completed={task.completed}
+          onDelete={DeleteById}
+          onEdit={EditByID}
+          onComplete={changeCompletedByID}
         />
       ))}
     </div>
