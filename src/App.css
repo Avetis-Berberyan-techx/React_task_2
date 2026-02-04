@@ -1,1 +1,96 @@
+:root[data-theme="light"] {
+  /* body variables */
+  --bg-color: #ffffff;
+  --text-color: #111827;
+  --card-bg: #ffffff;
+  --border-color: #e5e7eb;
 
+  /* toggle variables */
+  --toggle-bg: transparent;
+  --icon-inactive: grayscale(80%);
+  --icon-active: none;
+
+  /* status filter variables*/
+  --filter-bg: #ffffff;
+  --filter-color: #2c2c2cd1;
+  --filter-border: #2c2c2cd1;
+  --filter-active-color: lightgreen;
+  --filter-active-border: lightgreen;
+
+  /* task input variables */
+  --input-bg: #ffffff;
+  --input-text: #111827;
+  --input-border: #ccc;
+  --input-border-focus: #4f46e5;
+  --button-bg: #4f46e5;
+  --button-bg-hover: #4338ca;
+  --button-text: #ffffff;
+  /* task cards */
+  --todo-bg: #ffffff;
+  --todo-text: #333;
+  --todo-border: #ccc;
+  --todo-shadow: rgba(0, 0, 0, 0.08);
+
+  --button-bg: #ffffff;
+  --button-text: #111;
+
+  --button-edit-filter: invert(62%) sepia(47%) saturate(502%) hue-rotate(358deg);
+  --button-delete-filter: invert(27%) sepia(87%) saturate(7482%)
+    hue-rotate(356deg);
+  --button-check-filter: grayscale(100%);
+  --button-check-checked-filter: invert(53%) sepia(78%) saturate(416%)
+    hue-rotate(90deg);
+}
+
+:root[data-theme="dark"] {
+  --bg-color: #111827;
+  --text-color: #f9fafb;
+  --card-bg: #1f2933;
+  --border-color: #374151;
+  /* toggle variables */
+  --toggle-bg: rgba(255, 255, 255, 0.1);
+  --icon-inactive: brightness(0) invert(1);
+  --icon-active: none;
+  /* status filter variables*/
+  --filter-bg: #1f2933; /* dark card background */
+  --filter-color: #d1d5db; /* light grey text */
+  --filter-border: #374151; /* dark grey border */
+  --filter-active-color: lightgreen;
+  --filter-active-border: lightgreen;
+  /* task input variables */
+  --input-bg: #1f2933;
+  --input-text: #f9fafb;
+  --input-border: #374151;
+  --input-border-focus: #6366f1;
+  --button-bg: #6366f1;
+  --button-bg-hover: #4f46e5;
+  --button-text: #f9fafb;
+  /* task cards */
+  --todo-bg: #1f2933; /* dark card */
+  --todo-text: #f9fafb;
+  --todo-border: #374151;
+  --todo-shadow: rgba(0, 0, 0, 0.5);
+
+  --button-bg: #374151;
+  --button-text: #f9fafb;
+
+  --button-edit-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg);
+  --button-delete-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg);
+  --button-check-filter: grayscale(80%);
+  --button-check-checked-filter: invert(53%) sepia(78%) saturate(416%)
+    hue-rotate(90deg);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.app-header {
+  display: flex;
+  min-width: 320px;
+  justify-content: center;
+}

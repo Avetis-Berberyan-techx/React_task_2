@@ -6,16 +6,15 @@
   align-items: center;
   min-width: 320px;
 }
-/* to do item */
 
 .todo {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 0px;
-  background-color: #ffffff;
+  padding: 12px 0;
+  background-color: var(--todo-bg);
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 6px var(--todo-shadow);
   margin: 0px 5px 6px 5px;
   width: 50%;
   min-width: 320px;
@@ -23,7 +22,7 @@
 
 .todo__text {
   font-size: 16px;
-  color: #333;
+  color: var(--todo-text);
   margin: 0;
   flex: 1;
   padding-left: 12px;
@@ -33,7 +32,7 @@
   flex: 1;
   padding: 8px 2px;
   font-size: 16px;
-  border: 2px solid #ccc;
+  border: 2px solid var(--todo-border);
   border-radius: 6px;
   outline: none;
   transition:
@@ -41,6 +40,8 @@
     box-shadow 0.2s;
   margin-left: 12px;
   width: 20%;
+  background-color: var(--todo-bg);
+  color: var(--todo-text);
 }
 
 .todo__actions {
@@ -54,7 +55,7 @@
   border: none;
   font-size: 14px;
   cursor: pointer;
-  background-color: #ffffff;
+  background-color: var(--button-bg);
 }
 
 .todo__button img {
@@ -63,21 +64,21 @@
 }
 
 .todo__button-edit img {
-  filter: invert(62%) sepia(47%) saturate(502%) hue-rotate(358deg);
+  filter: var(--button-edit-filter);
 }
 
 .todo__button-delete img {
-  filter: invert(27%) sepia(87%) saturate(7482%) hue-rotate(356deg);
+  filter: var(--button-delete-filter);
 }
 
 .todo__button-check--image {
-  filter: grayscale(100%);
-}
-.todo__button-check--image-checked {
-  filter: invert(53%) sepia(78%) saturate(416%) hue-rotate(90deg);
+  filter: var(--button-check-filter);
 }
 
-/* Hover & active states */
+.todo__button-check--image-checked {
+  filter: var(--button-check-checked-filter);
+}
+
 .todo__button:hover {
   opacity: 0.9;
 }

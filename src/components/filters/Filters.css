@@ -1,0 +1,29 @@
+.filters {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  justify-content: center;
+  min-width: 320px;
+}
+
+.filter__button-item {
+  padding: 6px 6px;
+  font-size: 18px;
+  background-color: var(--bg-color);
+  color: var(--filter-color);
+  border: none;
+  border-bottom: 1px solid var(--filter-border);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter__button-item--active {
+  padding: 6px 6px;
+  font-size: 18px;
+  background-color: var(--bg-color);
+  color: var(--filter-active-color);
+  border: none;
+  border-bottom: 1px solid var(--filter-active-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}

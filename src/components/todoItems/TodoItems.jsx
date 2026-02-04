@@ -80,7 +80,7 @@ function TodoItem({ id, taskText, completed, onDelete, onEdit, onComplete }) {
   );
 }
 
-function TodoItems({
+export default function TodoItems({
   tasks,
   DeleteById,
   EditByID,
@@ -88,8 +88,8 @@ function TodoItems({
   filter = "all",
 }) {
   const filteredTasks = tasks.filter((task) => {
-    if (filter === "completed") return task.completed;
-    if (filter === "active") return !task.completed;
+    if (filter === "Completed") return task.completed;
+    if (filter === "Active") return !task.completed;
     return true;
   });
 
@@ -109,5 +109,3 @@ function TodoItems({
     </div>
   );
 }
-
-export default TodoItems;
