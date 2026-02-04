@@ -55,7 +55,7 @@
   border: none;
   font-size: 14px;
   cursor: pointer;
-  background-color: var(--button-bg);
+  background-color: var(--todo-bg);
 }
 
 .todo__button img {
@@ -72,7 +72,7 @@
 }
 
 .todo__button-check--image {
-  filter: var(--button-check-filter);
+  filter: var(--button-delete-filter);
 }
 
 .todo__button-check--image-checked {

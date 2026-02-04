@@ -2,28 +2,24 @@
   /* body variables */
   --bg-color: #ffffff;
   --text-color: #111827;
-  --card-bg: #ffffff;
   --border-color: #e5e7eb;
 
   /* toggle variables */
   --toggle-bg: transparent;
   --icon-inactive: grayscale(80%);
-  --icon-active: none;
 
   /* status filter variables*/
-  --filter-bg: #ffffff;
   --filter-color: #2c2c2cd1;
   --filter-border: #2c2c2cd1;
   --filter-active-color: lightgreen;
   --filter-active-border: lightgreen;
 
   /* task input variables */
-  --input-bg: #ffffff;
   --input-text: #111827;
   --input-border: #ccc;
-  --input-border-focus: #4f46e5;
-  --button-bg: #4f46e5;
-  --button-bg-hover: #4338ca;
+  --input-border-focus: lightgreen;
+  --button-bg: lightgreen;
+  --button-bg-hover: lightgreen;
   --button-text: #ffffff;
   /* task cards */
   --todo-bg: #ffffff;
@@ -45,20 +41,16 @@
 :root[data-theme="dark"] {
   --bg-color: #111827;
   --text-color: #f9fafb;
-  --card-bg: #1f2933;
   --border-color: #374151;
   /* toggle variables */
   --toggle-bg: rgba(255, 255, 255, 0.1);
   --icon-inactive: brightness(0) invert(1);
-  --icon-active: none;
   /* status filter variables*/
-  --filter-bg: #1f2933; /* dark card background */
-  --filter-color: #d1d5db; /* light grey text */
-  --filter-border: #374151; /* dark grey border */
+  --filter-color: #d1d5db;
+  --filter-border: #374151;
   --filter-active-color: lightgreen;
   --filter-active-border: lightgreen;
   /* task input variables */
-  --input-bg: #1f2933;
   --input-text: #f9fafb;
   --input-border: #374151;
   --input-border-focus: #6366f1;
