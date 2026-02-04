@@ -1,0 +1,26 @@
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: fixed;
+  top: 26px;
+  right: 16px;
+  z-index: 1000;
+
+  background-color: var(--toggle-bg);
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: background-color 0.25s ease;
+}
+
+.theme-toggle__icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  filter: var(--icon-inactive);
+  transition: all 0.2s ease;
+}
+
+.theme-toggle__icon--active {
+  opacity: 1;
+}

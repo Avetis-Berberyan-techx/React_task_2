@@ -1,0 +1,88 @@
+.tasks {
+  width: 100%;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 320px;
+}
+
+.todo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  background-color: var(--todo-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px var(--todo-shadow);
+  margin: 0px 5px 6px 5px;
+  width: 50%;
+  min-width: 320px;
+}
+
+.todo__text {
+  font-size: 16px;
+  color: var(--todo-text);
+  margin: 0;
+  flex: 1;
+  padding-left: 12px;
+}
+
+.todo__text-input {
+  flex: 1;
+  padding: 8px 2px;
+  font-size: 16px;
+  border: 2px solid var(--todo-border);
+  border-radius: 6px;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+  margin-left: 12px;
+  width: 20%;
+  background-color: var(--todo-bg);
+  color: var(--todo-text);
+}
+
+.todo__actions {
+  display: flex;
+  gap: 8px;
+  margin-right: 12px;
+}
+
+.todo__button {
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: var(--todo-bg);
+}
+
+.todo__button img {
+  width: 100%;
+  min-width: 21px;
+}
+
+.todo__button-edit img {
+  filter: var(--button-edit-filter);
+}
+
+.todo__button-delete img {
+  filter: var(--button-delete-filter);
+}
+
+.todo__button-check--image {
+  filter: var(--button-delete-filter);
+}
+
+.todo__button-check--image-checked {
+  filter: var(--button-check-checked-filter);
+}
+
+.todo__button:hover {
+  opacity: 0.9;
+}
+
+.todo__button:active {
+  transform: scale(0.96);
+}
